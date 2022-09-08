@@ -21,5 +21,3 @@ RUN conda install -y -q \
  && conda clean -a -f -y \
  && chown -R ${NB_USER}:users ${CONDA_DIR} \
  && chown -R ${NB_USER}:users ${HOME}
-
-USER ${NB_USER}
