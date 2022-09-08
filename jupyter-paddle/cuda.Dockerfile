@@ -1,4 +1,4 @@
-FROM kubeflownotebooks/jupyter:v0.63.0
+FROM registry.cn-hangzhou.aliyuncs.com/wfmirror/kubeflownotebooks:jupyter-base-v0.4.0
 
 USER root
 
@@ -14,9 +14,9 @@ RUN export DEBIAN_FRONTEND=noninteractive \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
- USER $NB_UID
+#USER $NB_UID
 
 # install - requirements.txt
-COPY --chown=jovyan:users cuda-requirements.txt /tmp/requirements.txt
+COPY cuda-requirements.txt /tmp/requirements.txt
 RUN python3 -m pip install -r /tmp/requirements.txt --quiet --no-cache-dir \
  && rm -f /tmp/requirements.txt
