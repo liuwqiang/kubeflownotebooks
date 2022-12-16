@@ -2,8 +2,8 @@ from registry.baidubce.com/paddlepaddle/paddle:2.3.2-gpu-cuda11.2-cudnn8
 
 USER root
 
-RUN python -m pip install ipykernel==6.13.0 notebook==6.4.11 jupyterlab-git==0.37.1 jupyterlab==3.4.2 xeus-python==0.14.3 paddlenlp==2.4.3 \
-&& jupyter lab --generate-config
+RUN python -m pip install ipykernel==6.13.0 notebook==6.4.11 jupyterlab-git==0.37.1 jupyterlab==3.4.2 xeus-python==0.14.3 paddlenlp==2.4.3 -i https://mirror.baidu.com/pypi/simple \
+&& jupyter lab --generate-config && echo "root:root" | chpasswd
 
 ENV NB_USER jovyan
 ENV NB_UID 1000
